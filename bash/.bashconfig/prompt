@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Everything below is at least partially ChatGPT's fault
+
+# ---[ Load git-prompt ]---
+# (this file ships with git; paths vary slightly by distro)
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+	. /usr/share/git/completion/git-prompt.sh
+elif [ -f /etc/bash_completion.d/git-prompt ]; then
+	. /etc/bash_completion.d/git-prompt
+elif [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+	. /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+
+# ---[ Color definitions ]---
+# Use \[ \] to wrap non-printing sequences so readline keeps cursor position correct
+# These are standard ANSI colors
+RESET='\[\033[0m\]'
+BOLD='\[\033[1m\]'
+RED='\[\033[0;31m\]'
+GREEN='\[\033[0;32m\]'
+YELLOW='\[\033[0;33m\]'
+BLUE='\[\033[0;34m\]'
+MAGENTA='\[\033[0;35m\]'
+CYAN='\[\033[0;36m\]'
+WHITE='\[\033[0;37m\]'
+
+# ---[ Git branch color setup ]---
+# Colors the branch name in yellow inside parentheses
+GIT_PS1_SHOWDIRTYSTATE=true  # optional: shows '*' if dirty, '+' if staged
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=auto
+
+# ---[ Prompt ]---
+# \u = user, \h = host, \w = cwd, \$ = # or $
+# __git_ps1 adds " (branch)" if inside a git repo
+PS1="${BOLD}${GREEN}\u@\h${RESET}:${BLUE}\w${YELLOW}\$(__git_ps1 ' (%s)')${RESET}\$ "

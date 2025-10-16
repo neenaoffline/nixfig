@@ -15,5 +15,6 @@
 	nixfmt-rfc-style
 	];
       };
+    };
   };
 }
