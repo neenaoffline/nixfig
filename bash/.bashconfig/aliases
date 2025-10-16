@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+alias g='git'
+alias gst='git status'
+alias glog='git log'
