@@ -23,6 +23,7 @@
         packages = [
           pkgs.just
           pkgs.stow
+          pkgs.zellij
           pkgs.nixfmt-rfc-style
           self'.packages.neovim
 	];
