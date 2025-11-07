@@ -9,6 +9,7 @@
   outputs = inputs@{ flake-parts, self, nixpkgs, nvf } : flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ "x86_64-linux" ];
     perSystem = { pkgs, self', ... }: {
+      packages.zellij = pkgs.zellij;
       packages.neovim = let
         configuration = {};
 

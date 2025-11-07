@@ -3,3 +3,5 @@
 alias g='git'
 alias gst='git status'
 alias glog='git log'
+# Little awkward that we're hardcoding paths here. But, let's solve that another day
+alias zllj='nix develop /home/neena/orchestration/nixfig -c zellij'
