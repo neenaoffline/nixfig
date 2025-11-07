@@ -3,16 +3,28 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = inputs@{ flake-parts, self, nixpkgs } : flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs@{ flake-parts, self, nixpkgs, nvf } : flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ "x86_64-linux" ];
-    perSystem = { pkgs, ... }: {
+    perSystem = { pkgs, self', ... }: {
+      packages.neovim = let
+        configuration = {};
+
+	customNeovim = nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          modules = [configuration];
+        };
+      in
+        customNeovim.neovim;
+
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [
-	just
-	stow
-	nixfmt-rfc-style
+        packages = [
+          pkgs.just
+          pkgs.stow
+          pkgs.nixfmt-rfc-style
+          self'.packages.neovim
 	];
       };
     };
