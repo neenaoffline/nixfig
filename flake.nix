@@ -25,14 +25,15 @@
       devShells.default = pkgs.mkShell {
         packages = [
           pkgs.bashInteractive
-            pkgs.zig
-            pkgs.just
-            pkgs.stow
-            pkgs.zellij
-            pkgs.zed-editor
-            inputs'.opencode.packages.default
-            pkgs.nixfmt-rfc-style
-            self'.packages.neovim
+          pkgs.zig
+          pkgs.just
+          pkgs.stow
+          pkgs.zellij
+          pkgs.zed-editor
+	  pkgs.irssi
+          inputs'.opencode.packages.default
+          pkgs.nixfmt-rfc-style
+          self'.packages.neovim
         ];
       };
     };
