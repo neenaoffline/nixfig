@@ -25,6 +25,7 @@
       devShells.default = pkgs.mkShell {
         packages = [
           pkgs.bashInteractive
+            pkgs.zig
             pkgs.just
             pkgs.stow
             pkgs.zellij
