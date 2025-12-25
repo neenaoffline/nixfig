@@ -9,8 +9,8 @@ stow-dotfiles:
   for file in $(cd dotfiles && find . -type f -o -type l | sed 's|^\./||'); do
     target="$HOME/$file"
     if [[ -e "$target" && ! -L "$target" ]]; then
-      echo "Backing up $target to $target.backup"
       mv "$target" "$target.backup"
+      echo "Backed up $target to $target.backup"
     fi
   done
   stow -vvt ~ dotfiles
