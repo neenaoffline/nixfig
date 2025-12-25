@@ -65,6 +65,7 @@
             pkgs.ripgrep
             pkgs.eza
             pkgs.git
+            pkgs.zoxide
 
             pkgs.nixfmt-rfc-style
             self'.packages.neovim

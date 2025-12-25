@@ -18,4 +18,7 @@ export PATH
 . $HOME/.bashconfig/prompt
 [ -f $HOME/.bashconfig/local ] && . $HOME/.bashconfig/local # This file is setup by the user
 
+# Initialize zoxide (must be at the end of bashrc)
+eval "$(zoxide init bash)"
+
 unset rc
