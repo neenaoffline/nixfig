@@ -3,21 +3,18 @@
 # Everything below is at least partially ChatGPT's fault
 
 # ---[ Load git-prompt ]---
-# (this file ships with git; paths vary slightly by distro)
-if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-	. /usr/share/git/completion/git-prompt.sh
-elif [ -f /etc/bash_completion.d/git-prompt ]; then
-	. /etc/bash_completion.d/git-prompt
-elif [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-	. /usr/share/git-core/contrib/completion/git-prompt.sh
-elif [ -f /run/current-system/sw/share/bash-completion/completions/git-prompt.sh ]; then
-	# NixOS system-wide
-	. /run/current-system/sw/share/bash-completion/completions/git-prompt.sh
-elif command -v git >/dev/null 2>&1; then
-	# Nix (home-manager or nix-shell): find git-prompt.sh relative to git binary
-	_git_prompt_path="$(dirname "$(dirname "$(command -v git)")")/share/bash-completion/completions/git-prompt.sh"
-	[ -f "$_git_prompt_path" ] && . "$_git_prompt_path"
-	unset _git_prompt_path
+# Find git-prompt.sh relative to the git binary (works for Nix, NixOS, and most distros)
+if command -v git >/dev/null 2>&1; then
+	_git_prefix="$(dirname "$(dirname "$(command -v git)")")"
+	for _git_prompt_path in \
+		"$_git_prefix/share/bash-completion/completions/git-prompt.sh" \
+		"$_git_prefix/share/git/contrib/completion/git-prompt.sh"; do
+		if [ -f "$_git_prompt_path" ]; then
+			. "$_git_prompt_path"
+			break
+		fi
+	done
+	unset _git_prefix _git_prompt_path
 fi
 
 # ---[ Color definitions ]---
