@@ -339,22 +339,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_8": {
-      "locked": {
-        "lastModified": 1765425892,
-        "narHash": "sha256-jlQpSkg2sK6IJVzTQBDyRxQZgKADC2HKMRfGCSgNMHo=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5d6bdbddb4695a62f0d00a3620b37a15275a5093",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -375,24 +359,6 @@
       "original": {
         "owner": "notashelf",
         "repo": "nvf",
-        "type": "github"
-      }
-    },
-    "opencode": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_8"
-      },
-      "locked": {
-        "lastModified": 1765581911,
-        "narHash": "sha256-L/VlZJagYm72Iojdk7Jg6SihMgUrzl0W70f7zQ+OpCo=",
-        "owner": "sst",
-        "repo": "opencode",
-        "rev": "cd9898a5650c38b606c615f0a17618cd713900ff",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sst",
-        "repo": "opencode",
         "type": "github"
       }
     },
@@ -451,8 +417,7 @@
         "aider-nix": "aider-nix",
         "flake-parts": "flake-parts_4",
         "nixpkgs": "nixpkgs_5",
-        "nvf": "nvf",
-        "opencode": "opencode"
+        "nvf": "nvf"
       }
     },
     "systems": {

@@ -59,7 +59,6 @@
             pkgs.just
             pkgs.stow
             pkgs.zellij
-            pkgs.zed-editor
             pkgs.irssi
             pkgs.fd
             pkgs.bat
