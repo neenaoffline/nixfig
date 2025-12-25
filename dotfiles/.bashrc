@@ -16,6 +16,6 @@ export PATH
 # Move this to ~/.bashrc.d/
 . $HOME/.bashconfig/aliases
 . $HOME/.bashconfig/prompt
-. $HOME/.bashconfig/local # This file is setup by the user
+[ -f $HOME/.bashconfig/local ] && . $HOME/.bashconfig/local # This file is setup by the user
 
 unset rc
