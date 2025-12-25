@@ -10,6 +10,14 @@ elif [ -f /etc/bash_completion.d/git-prompt ]; then
 	. /etc/bash_completion.d/git-prompt
 elif [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
 	. /usr/share/git-core/contrib/completion/git-prompt.sh
+elif [ -f /run/current-system/sw/share/bash-completion/completions/git-prompt.sh ]; then
+	# NixOS system-wide
+	. /run/current-system/sw/share/bash-completion/completions/git-prompt.sh
+elif command -v git >/dev/null 2>&1; then
+	# Nix (home-manager or nix-shell): find git-prompt.sh relative to git binary
+	_git_prompt_path="$(dirname "$(dirname "$(command -v git)")")/share/bash-completion/completions/git-prompt.sh"
+	[ -f "$_git_prompt_path" ] && . "$_git_prompt_path"
+	unset _git_prompt_path
 fi
 
 # ---[ Color definitions ]---
