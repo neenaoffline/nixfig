@@ -3,4 +3,4 @@
 alias g='git'
 alias gst='git status'
 alias glog='git log'
-alias zllj='nix develop /home/neena/orchestration/nixfig -c zellij'
+alias zllj='nix develop $NIXFIG_DIR -c zellij'
