@@ -12,6 +12,8 @@ Some aliases need to reference the nixfig repository path. Rather than hardcodin
 
 The generated `aliases` file is gitignored.
 
+**Note:** The repo path is baked in at template time. If you move the repository, you'll need to re-run `just` to regenerate the aliases file.
+
 ## Adding new aliases
 
 For simple aliases, just add them to `aliases.template`:

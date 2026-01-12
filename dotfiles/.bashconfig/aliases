@@ -3,4 +3,11 @@
 alias g='git'
 alias gst='git status'
 alias glog='git log'
-alias zllj='nix develop /home/neena/orchestration/nixfig -c zellij'
+zllj() {
+  if [[ ! -d "/home/neena/orchestration/nixfig-moved" ]]; then
+    echo "nixfig repo not found at /home/neena/orchestration/nixfig-moved" >&2
+    echo "Did you move the repo? Re-run 'just' from the new location." >&2
+    return 1
+  fi
+  nix develop "/home/neena/orchestration/nixfig-moved" -c zellij "$@"
+}

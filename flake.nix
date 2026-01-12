@@ -14,11 +14,11 @@
       let
         pi-coding-agent = pkgs.buildNpmPackage {
           pname = "pi-coding-agent";
-          version = "0.29.0";
+          version = "0.42.2";
 
           src = pkgs.fetchurl {
-            url = "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.29.0.tgz";
-            hash = "sha256-PnMHubEpk/rbydHKXy8rXtDgCeCp8gdhywRA4uZgZ1g=";
+            url = "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.42.2.tgz";
+            hash = "sha256-t4T8v6ggONtAUo+NnJ15MXe/cn2u/8f9VUziHJQ9cVc=";
           };
 
           sourceRoot = "package";
@@ -29,7 +29,7 @@
 
           dontNpmBuild = true;
 
-          npmDepsHash = "sha256-dL5peg+lnw6NqINHtmwZs+57AAuRMrq4L0BCrsJz+Mc=";
+          npmDepsHash = "sha256-BRfSWwR2BX6RmgCDihVcvTWokoxdWNVgbrCAcCEJPkw=";
 
           meta = with pkgs.lib; {
             description = "Coding agent CLI with read, bash, edit, write tools and session management";

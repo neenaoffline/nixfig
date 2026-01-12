@@ -3,4 +3,11 @@
 alias g='git'
 alias gst='git status'
 alias glog='git log'
-alias zllj='nix develop $NIXFIG_DIR -c zellij'
+zllj() {
+  if [[ ! -d "$NIXFIG_DIR" ]]; then
+    echo "nixfig repo not found at $NIXFIG_DIR" >&2
+    echo "Did you move the repo? Re-run 'just' from the new location." >&2
+    return 1
+  fi
+  nix develop "$NIXFIG_DIR" -c zellij "$@"
+}
